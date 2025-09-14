@@ -1,26 +1,214 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light theme colors */
+  --background-light-dark: rgb(226 232 240);
+  --background-light-light: rgb(241 245 249);
+  --text-light: rgb(17 24 39);
+  
+  /* Dark theme colors */
+  --background-dark-dark: rgb(17 24 39);
+  --background-dark-light: rgb(30 41 59);
+  --text-dark: rgb(229 231 235);
+  
+  /* Primary colors */
+  --primary-light: rgb(6 182 212);
+  --primary-dark: rgb(14 165 233);
+  
+  /* Default to light theme */
+  --background: var(--background-light-light);
+  --background-secondary: var(--background-light-dark);
+  --foreground: var(--text-light);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
+/* Light theme */
+.light {
+  --background: var(--background-light-light);
+  --background-secondary: var(--background-light-dark);
+  --foreground: var(--text-light);
+}
+
+/* Dark theme */
+.dark {
+  --background: var(--background-dark-dark);
+  --background-secondary: var(--background-dark-light);
+  --foreground: var(--text-dark);
+}
+
+/* System theme (default) */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not(.light):not(.dark) {
+    --background: var(--background-dark-dark);
+    --background-secondary: var(--background-dark-light);
+    --foreground: var(--text-dark);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Custom animations for navbar */
+@keyframes wave-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes slide-in-from-top {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes underline-slide-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes underline-slide-out {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* Apply custom animations */
+.animate-wave-bounce {
+  animation: wave-bounce 0.6s ease-out;
+}
+
+.animate-slide-in {
+  animation: slide-in-from-top 0.2s ease-out;
+}
+
+.animate-ripple {
+  animation: ripple 0.6s ease-out;
+}
+
+.animate-underline-in {
+  animation: underline-slide-in 0.3s ease-out;
+}
+
+.animate-underline-out {
+  animation: underline-slide-out 0.3s ease-out;
+}
+
+/* Ensure hover animations work properly */
+.group:hover .animate-wave-bounce {
+  animation: wave-bounce 0.6s ease-out;
+}
+
+.group:hover .animate-underline-in {
+  animation: underline-slide-in 0.3s ease-out;
+}
+
+/* Force animations to work on hover */
+.group:hover span[style*="animationDelay"] {
+  animation: wave-bounce 0.6s ease-out !important;
+}
+
+
+/* Wave animation keyframes */
+@keyframes wave-bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Logo character animations */
+.logo-char {
+  display: inline-block;
+  transition: color 0.3s ease-out;
+  transform: translateY(0px);
+}
+
+/* Wavy logo effect on hover */
+.group:hover .logo-char {
+  color: var(--primary-light) !important;
+  animation: wave-bounce 0.8s ease-in-out forwards;
+}
+
+/* Staggered timing for wavy effect - yerenmao.pro = 11 characters */
+.group:hover .logo-char:nth-child(1) { animation-delay: 0ms; }    /* y */
+.group:hover .logo-char:nth-child(2) { animation-delay: 100ms; }  /* e */
+.group:hover .logo-char:nth-child(3) { animation-delay: 200ms; }  /* r */
+.group:hover .logo-char:nth-child(4) { animation-delay: 300ms; }  /* e */
+.group:hover .logo-char:nth-child(5) { animation-delay: 400ms; }  /* n */
+.group:hover .logo-char:nth-child(6) { animation-delay: 500ms; }  /* m */
+.group:hover .logo-char:nth-child(7) { animation-delay: 600ms; }  /* a */
+.group:hover .logo-char:nth-child(8) { animation-delay: 700ms; }  /* o */
+.group:hover .logo-char:nth-child(9) { animation-delay: 800ms; }  /* . */
+.group:hover .logo-char:nth-child(10) { animation-delay: 900ms; } /* p */
+.group:hover .logo-char:nth-child(11) { animation-delay: 1000ms; } /* r */
+.group:hover .logo-char:nth-child(12) { animation-delay: 1100ms; } /* o */
+
+/* Navigation link animations */
+.nav-link {
+  transition: transform 0.3s ease-out;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.group:hover .nav-link {
+  transform: translateY(-4px) !important;
+  color: var(--primary-light) !important;
+}
+
+/* Framer Motion handles all animations */
+
+/* Force hover animations to work */
+.group:hover .logo-char:nth-child(1) { transition-delay: 0ms; }
+.group:hover .logo-char:nth-child(2) { transition-delay: 100ms; }
+.group:hover .logo-char:nth-child(3) { transition-delay: 200ms; }
+.group:hover .logo-char:nth-child(4) { transition-delay: 300ms; }
+.group:hover .logo-char:nth-child(5) { transition-delay: 400ms; }
+.group:hover .logo-char:nth-child(6) { transition-delay: 500ms; }
+.group:hover .logo-char:nth-child(7) { transition-delay: 600ms; }
+.group:hover .logo-char:nth-child(8) { transition-delay: 700ms; }
+.group:hover .logo-char:nth-child(9) { transition-delay: 800ms; }
+.group:hover .logo-char:nth-child(10) { transition-delay: 900ms; }
+.group:hover .logo-char:nth-child(11) { transition-delay: 1000ms; }

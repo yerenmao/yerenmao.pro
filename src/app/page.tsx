@@ -1,103 +1,102 @@
-import Image from "next/image";
+'use client';
+
+import { useState } from 'react';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  
+  // Array of photos - you can add more photos here
+  const photos = [
+    { src: '/me1.jpg', alt: 'Tristan Chen - Google' },
+    { src: '/me2.jpg', alt: 'Tristan Chen - HK1' },
+    { src: '/me3.jpg', alt: 'Tristan Chen - HK2' },
+    { src: '/me4.jpg', alt: 'Tristan Chen - HK3' },
+    { src: '/me5.jpg', alt: 'Tristan Chen - Japan' },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const handlePhotoClick = () => {
+    setCurrentPhotoIndex((prevIndex) => 
+      (prevIndex + 1) % photos.length
+    );
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-light-bg-light to-light-bg-dark dark:from-dark-bg-dark dark:to-dark-bg-light">
+      {/* Add top padding to account for fixed navbar */}
+      <div className="pt-16">
+        <div className="container mx-auto px-4 py-16">
+          {/* Hero Section with Photo and Introduction */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-6xl mx-auto">
+            {/* Left Side - Text Content */}
+            <div className="flex-1 text-center lg:text-left">
+                <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+                  Hi, I'm{" "}
+                  <span className="text-primary whitespace-nowrap">
+                    Tristan Chen
+                  </span>
+                </h1>
+              <p className="text-lg text-primary-light/80 mb-4">
+                aka yerenmao
+              </p>
+              <div className="text-xl text-foreground/80 mb-6 space-y-2">
+                <p>Senior Student at National Taiwan University</p>
+                <p className="text-lg text-foreground/70">
+                  Computer Science and Information Engineering
+                </p>
+              </div>
+              <p className="text-lg text-foreground/90 mb-6 max-w-2xl">
+                Welcome to my personal website!
+                <br />
+                I'm passionate about software development, machine learning and stock market.
+              </p>
+              
+              {/* Easter Egg Hint */}
+              <div className="bg-primary-light/10 border border-primary-light/20 rounded-lg p-4 mb-8 max-w-2xl">
+                <p className="text-sm text-primary-light/80 flex items-center gap-2">
+                  <span>
+                    <strong>Easter Egg:</strong> Try clicking on the floating circles to discover my cats! 
+                    <span className="text-xs"> (Only on home page)</span>
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            {/* Right Side - Photo Carousel */}
+            <div className="flex-1 max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-md">
+              <div className="relative group cursor-pointer" onClick={handlePhotoClick}>
+                {/* Photo Container with Glow Effect */}
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                  <img
+                    src={photos[currentPhotoIndex].src}
+                    alt={photos[currentPhotoIndex].alt}
+                    className="w-full h-auto object-cover transition-all duration-500 group-hover:scale-105"
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-light/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Click Indicator */}
+                  <div className="absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded-full text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Click to change
+                  </div>
+                </div>
+                
+                {/* Photo Counter
+                <div className="absolute bottom-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                  {currentPhotoIndex + 1} / {photos.length}
+                </div> */}
+                
+                {/* Floating Elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary-light/30 rounded-full animate-pulse" />
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary-dark/30 rounded-full animate-pulse" 
+                     style={{ animationDelay: '1s' }} />
+                <div className="absolute top-1/2 -left-6 w-4 h-4 bg-primary-light/20 rounded-full animate-pulse" 
+                     style={{ animationDelay: '2s' }} />
+              </div>
+            </div>
+          </div>
+
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
