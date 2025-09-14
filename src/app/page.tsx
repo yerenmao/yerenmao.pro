@@ -1,6 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Tristan Chen | Home',
+};
 
 export default function Home() {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);

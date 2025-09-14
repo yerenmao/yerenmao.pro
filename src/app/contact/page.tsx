@@ -1,3 +1,9 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Tristan Chen | Contact',
+};
+
 export default function Contact() {
   const socialLinks = [
     {
@@ -169,7 +175,7 @@ export default function Contact() {
                   
                   {/* Floating Label - Hidden on mobile, shown on hover for larger screens */}
                   <div className="hidden sm:block absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:-translate-y-2">
-                    <div className="bg-foreground/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+                    <div className="bg-foreground/90 backdrop-blur-sm text-foreground dark:text-background text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
                       {link.name}
                     </div>
                     {/* Arrow pointing up */}

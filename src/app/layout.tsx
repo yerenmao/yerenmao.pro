@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tristan Chen - yerenmao.pro",
+  title: "Tristan Chen | yerenmao.pro",
   description: "Tristan Chen - Computer Science Student at National Taiwan University",
   icons: {
     icon: "/honchkrow.png",
