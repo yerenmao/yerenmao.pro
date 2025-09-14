@@ -1,15 +1,15 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Tristan Chen | Experience',
-};
 
 export default function Experience() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const timelineRef = useRef<HTMLDivElement>(null);
+  
+  // Set page title
+  useEffect(() => {
+    document.title = 'Tristan Chen | Experience';
+  }, []);
 
   // Combined timeline data (work + education)
   const timelineData = [

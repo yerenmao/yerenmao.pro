@@ -1,10 +1,12 @@
-import type { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Tristan Chen | Contact',
-};
+import { useEffect } from 'react';
 
 export default function Contact() {
+  // Set page title
+  useEffect(() => {
+    document.title = 'Tristan Chen | Contact';
+  }, []);
   const socialLinks = [
     {
       name: 'LinkedIn',

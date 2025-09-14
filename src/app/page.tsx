@@ -1,14 +1,14 @@
 'use client';
 
-import { useState } from 'react';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Tristan Chen | Home',
-};
+import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  
+  // Set page title
+  useEffect(() => {
+    document.title = 'Tristan Chen | Home';
+  }, []);
   
   // Array of photos - you can add more photos here
   const photos = [
