@@ -67,7 +67,7 @@ const FloatingCircles = ({ clickable }: FloatingCirclesProps) => {
     ];
     
     const colors = ['var(--primary-light)', 'var(--primary-dark)'];
-    const circles = [];
+    const circles: Array<{size: number, opacity: number, speed: number, color: string, x: number, y: number}> = [];
     const usedPositions = new Set();
     
     sizeCategories.forEach((category, categoryIndex) => {
@@ -105,7 +105,7 @@ const FloatingCircles = ({ clickable }: FloatingCirclesProps) => {
     return circles;
   };
   
-  const [circles, setCircles] = useState([]);
+  const [circles, setCircles] = useState<Array<{size: number, opacity: number, speed: number, color: string, x: number, y: number}>>([]);
 
   // Handle client-side rendering to prevent hydration mismatch
   useEffect(() => {
