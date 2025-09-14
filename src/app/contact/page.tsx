@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 export default function Contact() {
   // Set page title
   useEffect(() => {
-    document.title = 'Tristan Chen | Contact';
+    document.title = 'Tristan Chen';
   }, []);
   const socialLinks = [
     {

@@ -8,7 +8,7 @@ export default function Experience() {
   
   // Set page title
   useEffect(() => {
-    document.title = 'Tristan Chen | Experience';
+    document.title = 'Tristan Chen';
   }, []);
 
   // Combined timeline data (work + education)

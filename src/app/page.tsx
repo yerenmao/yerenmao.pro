@@ -7,7 +7,7 @@ export default function Home() {
   
   // Set page title
   useEffect(() => {
-    document.title = 'Tristan Chen | Home';
+    document.title = 'Tristan Chen';
   }, []);
   
   // Array of photos - you can add more photos here
