@@ -30,7 +30,7 @@ export default function Home() {
             {/* Left Side - Text Content */}
             <div className="flex-1 text-center lg:text-left">
                 <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                  Hi, I'm{" "}
+                  Hi, I&apos;m{" "}
                   <span className="text-primary whitespace-nowrap">
                     Tristan Chen
                   </span>
@@ -47,7 +47,7 @@ export default function Home() {
               <p className="text-lg text-foreground/90 mb-6 max-w-2xl">
                 Welcome to my personal website!
                 <br />
-                I'm passionate about software development, machine learning and stock market.
+                I&apos;m passionate about software development, machine learning and stock market.
               </p>
               
               {/* Easter Egg Hint */}

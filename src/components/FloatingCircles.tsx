@@ -210,7 +210,7 @@ const FloatingCircles = ({ clickable }: FloatingCirclesProps) => {
                   fill
                   className="object-cover"
                   sizes={`${circle.size}px`}
-                  onError={(e) => {
+                  onError={() => {
                     // Fallback to original circle if image fails to load
                     console.log(`Cat image ${catPicture} not found, using fallback`);
                   }}
