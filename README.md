@@ -1,6 +1,6 @@
 # Tristan Chen - Personal Website
 
-Welcome to my personal website! This is a modern, responsive portfolio website built with Next.js, showcasing my experience, skills, and contact information.
+Welcome to my personal website! This is a modern, responsive portfolio website built with Next.js.
 
 ## 🌐 Live Website
 
