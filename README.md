@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tristan Chen - Personal Website
 
-## Getting Started
+Welcome to my personal website! This is a modern, responsive portfolio website built with Next.js, showcasing my experience, skills, and contact information.
 
-First, run the development server:
+## 🌐 Live Website
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Visit the live website at: **[https://yerenmao.pro](https://yerenmao.pro)**
+
+## 🚀 Local Development
+
+To run this website on your local machine, follow these steps:
+
+### Prerequisites
+- Node.js (version 18 or higher)
+- npm, yarn, pnpm, or bun
+
+### Installation & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yerenmao/yerenmao.pro.git
+   cd yerenmao.pro
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the website running locally.
+
+## 🎨 Features
+
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Interactive Elements**: 
+  - Photo carousel with click-to-change functionality
+  - Floating circles with cat easter egg (home page only)
+  - Smooth animations and transitions
+- **Modern Tech Stack**: Next.js 15, React, TypeScript, Tailwind CSS
+- **SEO Optimized**: Dynamic page titles and metadata
+- **Dark/Light Mode**: Automatic theme switching based on system preferences
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                    # Next.js app directory
+│   ├── page.tsx           # Home page
+│   ├── experience/        # Experience page
+│   ├── contact/           # Contact page
+│   └── layout.tsx         # Root layout
+├── components/            # Reusable components
+│   ├── Navbar.tsx         # Navigation component
+│   └── FloatingCircles.tsx # Animated background circles
+└── public/                # Static assets
+    ├── cats/              # Cat pictures for easter egg
+    ├── contact.jpg        # Professional photo
+    └── honchkrow.png      # Favicon
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Deployment**: Vercel
+- **Version Control**: Git & GitHub
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎯 Pages
 
-## Learn More
+- **Home**: Introduction, photo carousel, and easter egg
+- **Experience**: Timeline of work experience and education
+- **Contact**: Social media links and professional photo
 
-To learn more about Next.js, take a look at the following resources:
+## 🐱 Easter Egg
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+On the home page, try clicking the large floating circles to discover my cats! This interactive feature adds a playful touch to the website.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 Development
 
-## Deploy on Vercel
+The page auto-updates as you edit files. You can start by modifying `src/app/page.tsx` to see changes in real-time.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This website is automatically deployed to Vercel whenever changes are pushed to the main branch.
+
+## 📧 Contact
+
+- **Email**: tristanchen92@gmail.com
+- **LinkedIn**: [linkedin.com/in/shun-ying](https://www.linkedin.com/in/shun-ying)
+- **GitHub**: [github.com/yerenmao](https://github.com/yerenmao)
+- **Facebook**: [facebook.com/share/1GGLZnX8yP](https://www.facebook.com/share/1GGLZnX8yP)
+- **Instagram**: [instagram.com/tristan.chen.9](https://www.instagram.com/tristan.chen.9)
+
+---
+
+Built with ❤️ by Tristan Chen
